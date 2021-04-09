@@ -15,7 +15,7 @@ namespace GradeBook.GradeBooks
             int result = 0;
             foreach (var student in Students)
             {
-                if (student.AverageGrade <= grade) result++;
+                if (student.AverageGrade >= grade) result++;
             }
 
             return result;
@@ -36,22 +36,22 @@ namespace GradeBook.GradeBooks
             int totalCount = Students.Count;
             int rank = CountSmallerGrades(Students, averageGrade);
 
-            if (PercentCount(totalCount, 20) >= rank)
+            if (rank <= PercentCount(totalCount, 20))
             {
                 return 'A';
             }
             
-            if (PercentCount(totalCount, 40) >= rank)
+            if (rank <= PercentCount(totalCount, 40))
             {
                 return 'B';
             }
             
-            if (PercentCount(totalCount, 60) >= rank)
+            if (rank <= PercentCount(totalCount, 60))
             {
                 return 'C';
             }
             
-            if (PercentCount(totalCount, 80) >= rank)
+            if (rank <= PercentCount(totalCount, 80))
             {
                 return 'D';
             }
